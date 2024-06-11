@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   function SavedName() {
     const savedName = localStorage.getItem("name");
-    const savedNameDiv = document.getElementById("savedName");
+    const savedNameDiv = document.getElementById("nameDiv");
     if (savedName) {
       savedNameDiv.textContent = `Nome salvato: ${savedName}`;
     } else {
@@ -36,6 +36,10 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   let counter = parseInt(sessionStorage.getItem("counter"));
+  if (isNaN(counter)) {
+    counter = 0;
+  }
+
   const counterElement = document.getElementById("counter");
 
   function startCounter() {
